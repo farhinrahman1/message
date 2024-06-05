@@ -31,3 +31,7 @@ const UserSchema: Schema<User> = new Schema({
     isVerified: { type: Boolean, default: false },
     messages: [MessageSchema]
 });
+
+const UserModel = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>('User', UserSchema);
+
+export default UserModel;
